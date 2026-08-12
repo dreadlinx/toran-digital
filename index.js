@@ -1,373 +1,346 @@
-/**
- * TORAN DIGITAL — Premium Interactivity Script
- * Handles:
- * - Sticky Header
- * - Mobile Navigation Menu & Accordion
- * - Desktop Mega-Dropdown (Hover & Click & Focus states)
- * - Intersection Observer Scroll Animations
- * - Animated Stats Counter
- * - Portfolio Filter
- * - FAQ Accordion
- * - Smooth Scrolling
+/*
+ * TORAN DIGITAL — Shared interaction layer
+ *
+ * Provides accessible navigation, motion-safe reveals, portfolio filtering,
+ * FAQ disclosure behavior, a reliable contact-form client, and the estimator.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ==========================================
-  // 1. Sticky Header
-  // ==========================================
   const header = document.getElementById('header');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }, { passive: true });
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Trigger scroll on load to set initial state
-  window.dispatchEvent(new Event('scroll'));
+  // Sticky header
+  if (header) {
+    const setHeaderState = () => header.classList.toggle('scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', setHeaderState, { passive: true });
+    setHeaderState();
+  }
 
-  // ==========================================
-  // 2. Desktop Mega Dropdown Logic
-  // ==========================================
+  // Desktop mega menu
   const navDropdown = document.querySelector('.nav-dropdown');
   const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
-  const megaItems = document.querySelectorAll('.mega-item');
-  const subPanels = document.querySelectorAll('.mega-sub-panel');
+  const megaItems = [...document.querySelectorAll('.mega-item')];
+  const subPanels = [...document.querySelectorAll('.mega-sub-panel')];
   let dropdownTimeout;
 
   if (navDropdown && dropdownTrigger) {
-    // Show dropdown function
+    dropdownTrigger.setAttribute('aria-haspopup', 'true');
+    dropdownTrigger.setAttribute('aria-expanded', 'false');
+
     const showDropdown = () => {
-      clearTimeout(dropdownTimeout);
+      window.clearTimeout(dropdownTimeout);
       navDropdown.classList.add('open');
       dropdownTrigger.setAttribute('aria-expanded', 'true');
     };
 
-    // Hide dropdown function
-    const hideDropdown = () => {
-      dropdownTimeout = setTimeout(() => {
+    const hideDropdown = (returnFocus = false) => {
+      window.clearTimeout(dropdownTimeout);
+      dropdownTimeout = window.setTimeout(() => {
         navDropdown.classList.remove('open');
         dropdownTrigger.setAttribute('aria-expanded', 'false');
-      }, 200); // Small delay to avoid accidental flickering
+        if (returnFocus) dropdownTrigger.focus();
+      }, 150);
     };
 
-    // Mouse events for hover
     navDropdown.addEventListener('mouseenter', showDropdown);
-    navDropdown.addEventListener('mouseleave', hideDropdown);
-
-    // Keyboard navigation / Click toggle
-    dropdownTrigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = navDropdown.classList.contains('open');
-      if (isOpen) {
-        hideDropdown();
-      } else {
-        showDropdown();
-      }
+    navDropdown.addEventListener('mouseleave', () => hideDropdown());
+    dropdownTrigger.addEventListener('click', () => {
+      if (navDropdown.classList.contains('open')) hideDropdown();
+      else showDropdown();
     });
 
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        navDropdown.classList.remove('open');
-        dropdownTrigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Mega dropdown tab switcher logic
-    megaItems.forEach(item => {
-      const targetPanelId = item.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetPanelId);
-
+    megaItems.forEach((item) => {
+      const targetPanel = document.getElementById(item.getAttribute('data-target'));
+      if (!targetPanel) return;
       const activateTab = () => {
-        // Deactivate all items and panels
-        megaItems.forEach(mi => mi.classList.remove('active'));
-        subPanels.forEach(sp => sp.classList.remove('active'));
-
-        // Activate matching item and panel
+        megaItems.forEach((megaItem) => megaItem.classList.remove('active'));
+        subPanels.forEach((panel) => panel.classList.remove('active'));
         item.classList.add('active');
-        if (targetPanel) {
-          targetPanel.classList.add('active');
-        }
+        targetPanel.classList.add('active');
       };
-
-      // Hover to switch
       item.addEventListener('mouseenter', activateTab);
-
-      // Focus to switch (for keyboard navigation)
       item.addEventListener('focus', activateTab);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navDropdown.classList.contains('open')) {
+        hideDropdown(true);
+      }
     });
   }
 
-  // ==========================================
-  // 3. Mobile Navigation & Accordion
-  // ==========================================
+  // Mobile navigation
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
   const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
   const mobileServicesList = document.querySelector('.mobile-services-list');
 
   if (hamburger && mobileNav) {
-    const toggleMobileMenu = () => {
-      const isOpen = mobileNav.classList.contains('open');
-      hamburger.classList.toggle('active', !isOpen);
-      mobileNav.classList.toggle('open', !isOpen);
-      document.body.style.overflow = !isOpen ? 'hidden' : '';
+    let lastFocusedElement = null;
+    hamburger.setAttribute('aria-controls', mobileNav.id || 'mobileNav');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+
+    const setMenuState = (open) => {
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      mobileNav.classList.toggle('open', open);
+      mobileNav.setAttribute('aria-hidden', String(!open));
+      document.body.classList.toggle('menu-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+
+      if (open) {
+        lastFocusedElement = document.activeElement;
+        const firstFocusable = mobileNav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+        window.setTimeout(() => firstFocusable?.focus(), 50);
+      } else if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
     };
 
-    hamburger.addEventListener('click', toggleMobileMenu);
+    hamburger.addEventListener('click', () => setMenuState(!mobileNav.classList.contains('open')));
 
-    // Close menu when clicking links (except dropdown trigger)
-    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link:not(.mobile-services-toggle)');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenuState(false));
     });
 
-    // Mobile services accordion
     if (mobileServicesToggle && mobileServicesList) {
-      mobileServicesToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = mobileServicesList.classList.contains('open');
-        mobileServicesToggle.classList.toggle('open', !isOpen);
-        mobileServicesList.classList.toggle('open', !isOpen);
+      const servicesId = mobileServicesList.id || 'mobile-services-list';
+      mobileServicesList.id = servicesId;
+      mobileServicesToggle.setAttribute('aria-controls', servicesId);
+      mobileServicesToggle.setAttribute('aria-expanded', String(mobileServicesList.classList.contains('open')));
+      mobileServicesToggle.addEventListener('click', () => {
+        const open = !mobileServicesList.classList.contains('open');
+        mobileServicesToggle.classList.toggle('open', open);
+        mobileServicesList.classList.toggle('open', open);
+        mobileServicesToggle.setAttribute('aria-expanded', String(open));
       });
     }
+
+    document.addEventListener('keydown', (event) => {
+      if (!mobileNav.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        setMenuState(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusable = [...mobileNav.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => !element.hasAttribute('disabled'));
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
   }
 
-  // ==========================================
-  // 4. Scroll Animations (Intersection Observer)
-  // ==========================================
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-
-  if (revealElements.length > 0) {
-    const revealOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    };
-
+  // Reveal animations
+  const revealElements = [...document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')];
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach((element) => element.classList.add('visible'));
+  } else if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        
         entry.target.classList.add('visible');
-        
-        // If the container with stats enters viewport, run the stats counter
         if (entry.target.classList.contains('hero-stats') || entry.target.querySelector('.hero-stat-value')) {
           startCounters();
         }
-        
         observer.unobserve(entry.target);
       });
-    }, revealOptions);
-
-    revealElements.forEach(el => revealObserver.observe(el));
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach((element) => revealObserver.observe(element));
   }
 
-  // ==========================================
-  // 5. Stats Counter Animation
-  // ==========================================
+  // Animated statistics
   let countersAnimated = false;
-
   function startCounters() {
-    if (countersAnimated) return;
-    countersAnimated = true; // Lock immediately to prevent concurrent loops
-    
-    const countElements = document.querySelectorAll('.hero-stat-value[data-count]');
-    if (!countElements.length) return;
-
-    countElements.forEach(el => {
-      const target = parseInt(el.getAttribute('data-count'), 10);
-      if (isNaN(target)) return;
-
-      // Extract suffix HTML (e.g. <span class="accent">+</span> or %)
-      const suffixEl = el.querySelector('span');
-      const suffixHTML = suffixEl ? suffixEl.outerHTML : '';
-      
-      const duration = 1600; // ms
+    if (countersAnimated || reduceMotion) return;
+    countersAnimated = true;
+    document.querySelectorAll('.hero-stat-value[data-count]').forEach((element) => {
+      const target = Number.parseInt(element.getAttribute('data-count'), 10);
+      if (Number.isNaN(target)) return;
+      const suffix = element.querySelector('span')?.outerHTML || '';
       let startTime = null;
-
-      function update(now) {
+      const update = (now) => {
         if (!startTime) startTime = now;
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing out quadratic function
-        const easeOut = progress * (2 - progress);
-        const currentCount = Math.floor(easeOut * target);
-
-        el.innerHTML = currentCount + suffixHTML;
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          el.innerHTML = target + suffixHTML;
-        }
-      }
-
-      requestAnimationFrame(update);
+        const progress = Math.min((now - startTime) / 1600, 1);
+        element.innerHTML = `${Math.floor((progress * (2 - progress)) * target)}${suffix}`;
+        if (progress < 1) window.requestAnimationFrame(update);
+        else element.innerHTML = `${target}${suffix}`;
+      };
+      window.requestAnimationFrame(update);
     });
   }
 
-  // Check on load if stats are already in viewport
-  setTimeout(() => {
+  window.setTimeout(() => {
     const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) {
-      const rect = heroStats.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        startCounters();
-      }
-    }
+    if (heroStats && heroStats.getBoundingClientRect().top < window.innerHeight) startCounters();
   }, 150);
 
-  // ==========================================
-  // 6. Portfolio Filter logic
-  // ==========================================
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-  if (filterBtns.length > 0 && portfolioItems.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Toggle active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const category = btn.getAttribute('data-filter');
-
-        portfolioItems.forEach(item => {
-          const itemCategory = item.getAttribute('data-category');
-          
-          if (category === 'all' || itemCategory === category) {
-            item.style.display = 'block';
-            // Trigger a tiny reflow for opacity transition
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'scale(1)';
-            }, 30);
-          } else {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-              item.style.display = 'none';
-            }, 300);
-          }
+  // Portfolio filters
+  const filterButtons = [...document.querySelectorAll('.filter-btn')];
+  const portfolioItems = [...document.querySelectorAll('.portfolio-item')];
+  if (filterButtons.length && portfolioItems.length) {
+    filterButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-filter');
+        filterButtons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        portfolioItems.forEach((item) => {
+          const visible = category === 'all' || item.getAttribute('data-category') === category;
+          item.hidden = !visible;
+          item.style.display = visible ? 'block' : 'none';
         });
       });
     });
   }
 
-  // ==========================================
-  // 7. FAQ Accordion
-  // ==========================================
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  if (faqItems.length > 0) {
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      if (question) {
-        question.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-          
-          // Close other open ones
-          faqItems.forEach(fi => fi.classList.remove('active'));
-          
-          // Toggle current
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-
-  // ==========================================
-  // 8. Smooth Scroll for internal anchors
-  // ==========================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const headerHeight = header.offsetHeight || 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+  // FAQ disclosures
+  const faqItems = [...document.querySelectorAll('.faq-item')];
+  faqItems.forEach((item, index) => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!question || !answer) return;
+    const answerId = answer.id || `faq-answer-${index + 1}`;
+    answer.id = answerId;
+    question.setAttribute('aria-controls', answerId);
+    const setFaqState = (open) => {
+      item.classList.toggle('active', open);
+      question.setAttribute('aria-expanded', String(open));
+      answer.hidden = !open;
+    };
+    setFaqState(item.classList.contains('active'));
+    question.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('active');
+      faqItems.forEach((otherItem) => {
+        const otherQuestion = otherItem.querySelector('.faq-question');
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        if (otherQuestion && otherAnswer) {
+          otherItem.classList.remove('active');
+          otherQuestion.setAttribute('aria-expanded', 'false');
+          otherAnswer.hidden = true;
+        }
+      });
+      setFaqState(willOpen);
     });
   });
 
-  // ==========================================
-  // 9. Contact & Quote Form Lead Handler
-  // ==========================================
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const nameInput = form.querySelector('[name="name"]') || form.querySelector('input[type="text"]');
-      const emailInput = form.querySelector('[name="email"]') || form.querySelector('input[type="email"]');
-      const serviceInput = form.querySelector('[name="service"]') || form.querySelector('select');
-      const messageInput = form.querySelector('[name="message"]') || form.querySelector('textarea');
+  // Smooth internal navigation
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const selector = anchor.getAttribute('href');
+      if (!selector || selector === '#') return;
+      const target = document.querySelector(selector);
+      if (!target) return;
+      event.preventDefault();
+      const headerHeight = header?.offsetHeight || 80;
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      window.setTimeout(() => {
+        const offset = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: offset, behavior: reduceMotion ? 'auto' : 'smooth' });
+        if (target instanceof HTMLElement) {
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }
+      }, reduceMotion ? 0 : 200);
+    });
+  });
 
-      const name = nameInput ? nameInput.value.trim() : '';
-      const email = emailInput ? emailInput.value.trim() : '';
-      const service = serviceInput ? serviceInput.value.trim() : 'General Inquiry';
-      const message = messageInput ? messageInput.value.trim() : '';
+  // Lead forms: server-side delivery, honeypot spam protection, clear messages.
+  const showFormMessage = (form, type, message) => {
+    form.parentElement?.querySelector('.form-status')?.remove();
+    const status = document.createElement('div');
+    status.className = `form-status form-status--${type}`;
+    status.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.textContent = message;
+    form.insertAdjacentElement('afterend', status);
+  };
 
-      if (!name || !email) {
-        alert('Please fill in your name and email address.');
+  document.querySelectorAll('form[data-lead-form]').forEach((form) => {
+    if (!form.querySelector('[name="website"]')) {
+      const honeypot = document.createElement('div');
+      honeypot.className = 'form-honeypot';
+      honeypot.setAttribute('aria-hidden', 'true');
+      honeypot.innerHTML = '<label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>';
+      form.appendChild(honeypot);
+    }
+
+    form.querySelectorAll('input, select, textarea').forEach((field) => {
+      if (!field.getAttribute('aria-label') && !field.id) {
+        field.setAttribute('aria-label', field.getAttribute('placeholder') || field.getAttribute('name') || 'Form field');
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
 
-      // Build WhatsApp pre-filled link
-      const waText = encodeURIComponent(`Hi Toran Digital,\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`);
-      const waUrl = `https://wa.me/27696219479?text=${waText}`;
+      const sourceInput = form.querySelector('[name="source_url"]') || document.createElement('input');
+      if (!sourceInput.name) {
+        sourceInput.type = 'hidden';
+        sourceInput.name = 'source_url';
+        form.appendChild(sourceInput);
+      }
+      sourceInput.value = window.location.href;
 
-      // Create inline success notice
-      const successBox = document.createElement('div');
-      successBox.className = 'form-success-message';
-      successBox.style.cssText = 'padding: 1.5rem; background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; margin-top: 1rem; color: #15803d; font-family: var(--font-body);';
-      successBox.innerHTML = `
-        <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #166534;">Thank you, ${name}!</h4>
-        <p style="margin: 0 0 1rem 0; font-size: 0.95rem; color: #15803d;">Your enquiry has been received. Click below to instantly send your details directly via WhatsApp for a faster quote response:</p>
-        <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-whatsapp" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.75rem 1.25rem; font-weight: 700;">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Send via WhatsApp Instant
-        </a>
-      `;
+      const submitButton = form.querySelector('[type="submit"]');
+      const originalLabel = submitButton?.textContent || '';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+        submitButton.textContent = 'Sending your enquiry…';
+      }
 
-      form.reset();
-      const existingNotice = form.parentNode.querySelector('.form-success-message');
-      if (existingNotice) existingNotice.remove();
-      form.parentNode.appendChild(successBox);
+      try {
+        const response = await fetch(form.action || '/contact.php', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+          credentials: 'same-origin',
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || !payload.ok) {
+          throw new Error(payload.message || 'We could not send your enquiry. Please try again or contact us on WhatsApp.');
+        }
+        form.reset();
+        showFormMessage(form, 'success', payload.message || 'Thank you. Your enquiry has been sent successfully.');
+      } catch (error) {
+        showFormMessage(form, 'error', error instanceof Error ? error.message : 'We could not send your enquiry. Please contact us on WhatsApp or call us directly.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+          submitButton.textContent = originalLabel;
+        }
+      }
     });
   });
 
-  // ==========================================
-  // 10. Interactive Quote Estimator
-  // ==========================================
+  // Interactive quote estimator
   const calcCard = document.querySelector('.quote-calculator-card');
   if (calcCard) {
-    const categoryBtns = calcCard.querySelectorAll('.service-category-grid .calc-option-btn');
+    const categoryButtons = calcCard.querySelectorAll('.service-category-grid .calc-option-btn');
     const scopeSelect = document.getElementById('calc-scope-select');
     const addonsContainer = document.getElementById('calc-addons-container');
-    const totalPriceEl = document.getElementById('calc-total-price');
-    const whatsappBtn = document.getElementById('calc-whatsapp-btn');
+    const totalPrice = document.getElementById('calc-total-price');
+    const whatsappButton = document.getElementById('calc-whatsapp-btn');
+    if (!scopeSelect || !addonsContainer || !totalPrice || !whatsappButton) return;
 
     const optionsData = {
       web: {
@@ -375,105 +348,79 @@ document.addEventListener('DOMContentLoaded', () => {
           { name: 'Starter Business Website (5 Pages)', baseMin: 3500, baseMax: 5000 },
           { name: 'Corporate Business Site (10+ Pages)', baseMin: 7500, baseMax: 12000 },
           { name: 'E-Commerce Online Store (WooCommerce/Shopify)', baseMin: 12500, baseMax: 22000 },
-          { name: 'Custom React Web Application / Portal', baseMin: 25000, baseMax: 45000 }
+          { name: 'Custom Web Application / Portal', baseMin: 25000, baseMax: 45000 },
         ],
         addons: [
-          { id: 'seo', name: 'Local SEO Package', price: 2500 },
-          { id: 'copy', name: 'Professional Content Writing', price: 1500 },
-          { id: 'speed', name: 'Speed & Security Hardening', price: 1200 }
-        ]
+          { name: 'Local SEO Package', price: 2500 },
+          { name: 'Professional Content Writing', price: 1500 },
+          { name: 'Speed & Security Hardening', price: 1200 },
+        ],
       },
       vehicle: {
         scopes: [
           { name: 'Bakkie / Van Door Branding Decals', baseMin: 1800, baseMax: 2800 },
-          { name: 'Partial Vehicle Wrap (Half Wrap)', baseMin: 4500, baseMax: 7000 },
+          { name: 'Partial Vehicle Wrap', baseMin: 4500, baseMax: 7000 },
           { name: 'Full Vehicle Cast Vinyl Wrap', baseMin: 9500, baseMax: 14500 },
-          { name: 'Commercial Fleet Branding (Multiple Vehicles)', baseMin: 18000, baseMax: 35000 }
+          { name: 'Commercial Fleet Branding', baseMin: 18000, baseMax: 35000 },
         ],
         addons: [
-          { id: 'design', name: 'Custom 3D Wrap Graphic Design', price: 1500 },
-          { id: 'uv', name: 'Heavy-Duty UV Protective Laminate', price: 1200 }
-        ]
+          { name: 'Custom 3D Wrap Graphic Design', price: 1500 },
+          { name: 'Heavy-Duty UV Protective Laminate', price: 1200 },
+        ],
       },
       field: {
         scopes: [
           { name: 'Standard DSTV Decoder Installation', baseMin: 850, baseMax: 1200 },
           { name: 'DSTV Explora + Smart LNB Installation', baseMin: 1850, baseMax: 2500 },
-          { name: 'Concealed TV Wall Mounting (with Bracket)', baseMin: 1200, baseMax: 1800 },
-          { name: '4-Camera HD CCTV Security Setup', baseMin: 5500, baseMax: 8500 }
+          { name: 'Concealed TV Wall Mounting', baseMin: 1200, baseMax: 1800 },
+          { name: '4-Camera HD CCTV Security Setup', baseMin: 5500, baseMax: 8500 },
         ],
         addons: [
-          { id: 'extraview', name: 'Extra View Setup / Linking', price: 650 },
-          { id: 'appsync', name: 'Mobile App Sync & Remote Viewing', price: 850 }
-        ]
-      }
+          { name: 'Extra View Setup / Linking', price: 650 },
+          { name: 'Mobile App Sync & Remote Viewing', price: 850 },
+        ],
+      },
     };
 
     let currentCategory = 'web';
+    const calculateTotal = () => {
+      const category = optionsData[currentCategory];
+      const scope = category.scopes[Number.parseInt(scopeSelect.value, 10) || 0];
+      const selectedAddons = [...addonsContainer.querySelectorAll('.calc-addon-checkbox:checked')];
+      const addonTotal = selectedAddons.reduce((sum, checkbox) => sum + Number.parseInt(checkbox.value, 10), 0);
+      const totalMin = scope.baseMin + addonTotal;
+      const totalMax = scope.baseMax + addonTotal;
+      totalPrice.textContent = `R${totalMin.toLocaleString()} – R${totalMax.toLocaleString()}`;
+      const addonNames = selectedAddons.map((checkbox) => checkbox.dataset.name).join(', ') || 'None';
+      const message = `Hi Toran Digital,\n\nI used your Instant Cost Estimator:\n• Category: ${currentCategory.toUpperCase()}\n• Package: ${scope.name}\n• Add-ons: ${addonNames}\n• Estimated total: R${totalMin.toLocaleString()} – R${totalMax.toLocaleString()}\n\nCan we discuss getting this started?`;
+      whatsappButton.href = `https://wa.me/27696219479?text=${encodeURIComponent(message)}`;
+    };
 
     const updateCalculator = () => {
-      const catData = optionsData[currentCategory];
-      
-      // Update Scope Options
-      scopeSelect.innerHTML = catData.scopes.map((s, idx) => `<option value="${idx}">${s.name}</option>`).join('');
-      
-      // Update Addons
-      addonsContainer.innerHTML = catData.addons.map(a => `
-        <label style="display: flex; align-items: center; gap: 0.75rem; background: #27272a; padding: 0.85rem 1rem; border-radius: 8px; cursor: pointer; border: 1px solid #3f3f46; color: var(--white); font-size: 0.95rem;">
-          <input type="checkbox" value="${a.price}" data-name="${a.name}" class="calc-addon-checkbox" style="accent-color: var(--accent-500); width: 18px; height: 18px; cursor: pointer;">
-          <span>${a.name} (+R${a.price.toLocaleString()})</span>
+      const category = optionsData[currentCategory];
+      scopeSelect.innerHTML = category.scopes.map((scope, index) => `<option value="${index}">${scope.name}</option>`).join('');
+      addonsContainer.innerHTML = category.addons.map((addon, index) => `
+        <label class="calc-addon-label">
+          <input type="checkbox" value="${addon.price}" data-name="${addon.name}" class="calc-addon-checkbox" id="calc-addon-${index}">
+          <span>${addon.name} (+R${addon.price.toLocaleString()})</span>
         </label>
       `).join('');
-
       calculateTotal();
     };
 
-    const calculateTotal = () => {
-      const catData = optionsData[currentCategory];
-      const selectedScopeIndex = parseInt(scopeSelect.value) || 0;
-      const scopeObj = catData.scopes[selectedScopeIndex] || catData.scopes[0];
-
-      let addonTotal = 0;
-      const selectedAddons = [];
-      const checkedBoxes = addonsContainer.querySelectorAll('.calc-addon-checkbox:checked');
-      checkedBoxes.forEach(cb => {
-        addonTotal += parseInt(cb.value);
-        selectedAddons.push(cb.getAttribute('data-name'));
-      });
-
-      const totalMin = scopeObj.baseMin + addonTotal;
-      const totalMax = scopeObj.baseMax + addonTotal;
-
-      totalPriceEl.textContent = `R${totalMin.toLocaleString()} – R${totalMax.toLocaleString()}`;
-
-      // Build WhatsApp message
-      const msgText = `Hi Toran Digital,\n\nI used your Instant Cost Estimator:\n• Category: ${currentCategory.toUpperCase()}\n• Package: ${scopeObj.name}\n• Add-ons: ${selectedAddons.length ? selectedAddons.join(', ') : 'None'}\n• Estimated Total: R${totalMin.toLocaleString()} – R${totalMax.toLocaleString()}\n\nCan we discuss getting this started?`;
-      whatsappBtn.href = `https://wa.me/27696219479?text=${encodeURIComponent(msgText)}`;
-    };
-
-    categoryBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        categoryBtns.forEach(b => {
-          b.classList.remove('active');
-          b.style.border = '2px solid #27272a';
-          b.style.background = '#27272a';
-          const iconEl = b.querySelector('.calc-icon');
-          if (iconEl) iconEl.style.color = '#a1a1aa';
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
         });
-        btn.classList.add('active');
-        btn.style.border = '2px solid var(--accent-500)';
-        btn.style.background = 'rgba(249,115,22,0.1)';
-        const activeIconEl = btn.querySelector('.calc-icon');
-        if (activeIconEl) activeIconEl.style.color = 'var(--accent-400)';
-
-        currentCategory = btn.getAttribute('data-category');
+        currentCategory = button.getAttribute('data-category') || 'web';
         updateCalculator();
       });
     });
-
     scopeSelect.addEventListener('change', calculateTotal);
     addonsContainer.addEventListener('change', calculateTotal);
-
     updateCalculator();
   }
 });

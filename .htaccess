@@ -13,6 +13,10 @@ Redirect 301 /dstv-installation-bedfordview.html https://torandigital.co.za/dstv
 Redirect 301 /dstv-installation-benoni.html https://torandigital.co.za/dstv-installation-benoni/
 Redirect 301 /dstv-installation-boksburg.html https://torandigital.co.za/dstv-installation-boksburg/
 
+# Canonical local-service paths. Keep legacy nested variants out of the index.
+Redirect 301 /web-design/sandton/ https://torandigital.co.za/web-design-sandton/
+Redirect 301 /vehicle-branding/kempton-park/ https://torandigital.co.za/vehicle-branding-kempton-park/
+
 # ---------------------------------------------------------------
 # Security: Block direct browser/crawler access to dev scripts,
 # strategy docs, and internal planning files at root level.
@@ -39,3 +43,14 @@ Redirect 301 /dstv-installation-boksburg.html https://torandigital.co.za/dstv-in
 <FilesMatch "\.(zip|lock\.json)$">
   Require all denied
 </FilesMatch>
+
+# Do not expose directory listings if an index file is missing.
+Options -Indexes
+
+# Safe baseline security headers. The conditional keeps the site compatible
+# with hosts where mod_headers is not enabled.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), geolocation=(), microphone=()"
+</IfModule>
