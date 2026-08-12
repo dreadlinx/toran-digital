@@ -16,6 +16,7 @@ Redirect 301 /dstv-installation-boksburg.html https://torandigital.co.za/dstv-in
 # Canonical local-service paths. Keep legacy nested variants out of the index.
 Redirect 301 /web-design/sandton/ https://torandigital.co.za/web-design-sandton/
 Redirect 301 /vehicle-branding/kempton-park/ https://torandigital.co.za/vehicle-branding-kempton-park/
+Redirect 301 /dstv-installations/boksburg/ https://torandigital.co.za/dstv-installation-boksburg/
 
 # ---------------------------------------------------------------
 # Security: Block direct browser/crawler access to dev scripts,
