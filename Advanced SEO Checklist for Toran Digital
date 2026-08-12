@@ -1,0 +1,45 @@
+# Advanced SEO Checklist for Toran Digital
+
+While you have the fundamentals down, these "missing pieces" will give **Toran Digital** a competitive edge in the South African market.
+
+## 1. Technical SEO: The Engine Under the Hood
+Technical SEO ensures search engines can crawl, index, and understand your site efficiently.
+
+*   **Mobile-First Design:** Google uses the mobile version of your site for indexing. Ensure your site is 100% responsive and fast on mobile devices.
+*   **Site Speed (Core Web Vitals):** Fast-loading sites rank higher. Use tools like Google PageSpeed Insights to optimize images, minify code, and use browser caching.
+*   **HTTPS Security:** Ensure your site has an SSL certificate. Google prioritizes secure sites.
+*   **XML Sitemap & Robots.txt:** Create and submit an XML sitemap to Google Search Console. Ensure your `robots.txt` file isn't blocking important pages.
+*   **Schema Markup (Structured Data):** Implement `LocalBusiness` and `Service` schema. This helps Google display "rich snippets" (like star ratings or service details) in search results.
+*   **Fix 404 Errors:** Regularly check for broken links and redirect them to relevant pages using 301 redirects.
+
+## 2. Local Link Building: Building Authority in SA
+Backlinks (links from other sites to yours) are like "votes of confidence" for Google. Local links are especially powerful for Toran Digital.
+
+*   **South African Business Directories:** Get listed on high-quality SA directories:
+    *   Brabys
+    *   Yellow Pages SA
+    *   Hotfrog SA
+    *   Cylex South Africa
+*   **Local Suburb Blogs & News:** Reach out to local community sites (e.g., "Bedfordview News" or "Germiston Local") for guest posts or mentions.
+*   **Industry-Specific Links:** If you are a member of any professional bodies (like a design guild or installation association), ensure they link to your site.
+*   **Supplier/Partner Links:** Ask your suppliers (e.g., vehicle wrap material providers or DSTV equipment suppliers) to list you as an official installer or partner on their websites.
+*   **Collaborations:** Partner with other local businesses (like real estate agents or car dealerships) and cross-link to each other's sites.
+
+## 3. Tracking and Analytics: Measuring Success
+You can't improve what you don't measure. Set these up from day one.
+
+*   **Google Search Console (GSC):** Essential for seeing which keywords people use to find you and for identifying technical issues.
+*   **Google Analytics 4 (GA4):** Tracks user behavior on your site. See which pages are most popular and where users are dropping off.
+*   **Conversion Tracking:** Set up "Events" in GA4 to track when someone clicks your WhatsApp button, calls you, or fills out a contact form.
+*   **Google Business Profile (GBP) Insights:** Monitor how many people are finding you on Google Maps, calling you from your profile, or requesting directions.
+*   **Keyword Ranking Tracker:** Use a tool (like SE Ranking or even a simple spreadsheet) to track your position for your top keywords (e.g., "Web Design Johannesburg") over time.
+
+## 4. User Experience (UX) & Trust Signals
+SEO is also about keeping people on your site once they arrive.
+
+*   **Clear Calls to Action (CTAs):** Every page should have a clear next step (e.g., "Get a Quote," "WhatsApp Us").
+*   **Trust Badges:** Display logos of your accreditations (e.g., "Accredited DSTV Installer"), security certificates, and payment methods.
+*   **Client Testimonials & Reviews:** Prominently feature reviews from happy clients.
+*   **High-Quality Portfolio:** Use high-resolution images of your web designs, vehicle wraps, and installations.
+
+By ticking off these advanced items, **Toran Digital** will not only rank better but will also provide a superior experience for potential clients, leading to higher conversion rates.

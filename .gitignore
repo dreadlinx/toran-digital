@@ -1,0 +1,13 @@
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Tooling / IDE local state
+.codex
+.impeccable

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Web Design Johannesburg | Custom Websites | Toran Digital</title>
+  <meta name="description" content="Affordable and professional web design services in Johannesburg. We build custom WordPress, Shopify, and e-commerce websites designed to grow your business.">
+  <meta name="keywords" content="web design Johannesburg, website designers South Africa, web development Gauteng, affordable web design, e-commerce web design Johannesburg">
+  <meta name="author" content="Toran Digital">
+  <link rel="canonical" href="https://torandigital.co.za/web-design/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://torandigital.co.za/web-design/">
+  <meta property="og:title" content="Web Design & Development | Toran Digital">
+  <meta property="og:description" content="High-converting website design in Johannesburg. Start growing your business online today.">
+  <meta property="og:image" content="https://torandigital.co.za/logo/toran_logo_perfect.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+
+  <!-- Stylesheet -->
+  <!-- Google Fonts preloaded for performance (no render-blocking @import) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="../index.css">
+
+  <style>
+    /* Service Page Specific Styles */
+    .service-hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--navy-900), var(--navy-800));
+      position: relative;
+    }
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(6, 182, 164, 0.1), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+    
+    .content-block {
+      padding: 80px 0;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .pricing-card {
+      background: rgba(15, 32, 53, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--teal-400);
+    }
+    
+    .pricing-card.popular {
+      border-color: var(--blue-500);
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.1) 0%, rgba(15, 32, 53, 0.6) 100%);
+      position: relative;
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--blue-500), var(--teal-400));
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    
+    .price {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin: 1.5rem 0;
+    }
+    
+    .price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    
+    .pricing-features li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .pricing-features li svg {
+      width: 20px;
+      height: 20px;
+      color: var(--teal-400);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".hero-dark-desc", ".section-subtitle", ".faq-answer"]
+  },
+    "@type": "Service",
+    "name": "Website Design & Development",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Toran Digital",
+      "telephone": "+27696219479",
+      "image": "https://torandigital.co.za/logo/toran_logo_perfect.png"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Johannesburg" },
+      { "@type": "AdministrativeArea", "name": "Sandton" },
+      { "@type": "AdministrativeArea", "name": "Pretoria" },
+      { "@type": "AdministrativeArea", "name": "Centurion" },
+      { "@type": "AdministrativeArea", "name": "Gauteng" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Design Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Starter Business Website"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "3500",
+            "priceCurrency": "ZAR"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Corporate Pro Website"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "6500",
+            "priceCurrency": "ZAR"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "E-Commerce Website"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "9500",
+            "priceCurrency": "ZAR"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does web design cost in Johannesburg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing varies by project scope. Contact Toran Digital for a free, no-obligation quote tailored to your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the process take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Timelines depend on the project complexity. Toran Digital works efficiently to deliver results without compromising quality."
+      }
+    }
+  ]
+}
+</script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../logo/toran_logo_perfect.png">
+  <link rel="apple-touch-icon" href="../logo/toran_logo_perfect.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design Johannesburg | Custom Websites | Toran Digital">
+  <meta name="twitter:description" content="Affordable and professional web design services in Johannesburg. We build custom WordPress, Shopify, and e-commerce websites designed to grow your business.">
+  <meta name="twitter:image" content="https://torandigital.co.za/logo/toran_logo_perfect.png">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../" class="logo" aria-label="Toran Digital Home">
+          <img src="../logo/toran_logo_perfect.png" alt="Toran Digital Logo" width="44" height="44">
+          <span class="logo-text">TORAN <span>DIGITAL</span></span>
+        </a>
+
+        <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+          <a href="../">Home</a>
+          
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+              Our Services
+              <svg class="chevron-down" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mega-dropdown">
+              <div class="mega-dropdown-left">
+                <a href="./" class="mega-item active" data-target="mega-web">
+                  Website Design
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../mobile-apps/" class="mega-item" data-target="mega-apps">
+                  Mobile Apps
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../seo-marketing/" class="mega-item" data-target="mega-seo">
+                  SEO & Google Ads
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../vehicle-branding/" class="mega-item" data-target="mega-vehicle">
+                  Vehicle Branding
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../dstv-installations/" class="mega-item" data-target="mega-dstv">
+                  DSTV & Installations
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../graphic-design/" class="mega-item" data-target="mega-graphic">
+                  Graphic Design
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+              <div class="mega-dropdown-right">
+                <!-- Sub Panel: Web Design -->
+                <div class="mega-sub-panel active" id="mega-web">
+                  <a href="./#ecommerce">Ecommerce Stores</a>
+                  <a href="./#custom">Custom Web Apps</a>
+                  <a href="./#wordpress">WordPress Sites</a>
+                  <a href="../services/" class="view-all-services">View All Web Services &rarr;</a>
+                </div>
+                <!-- Sub Panel: Mobile Apps -->
+                <div class="mega-sub-panel" id="mega-apps">
+                  <a href="../mobile-apps/ios-development/">Native iOS Development</a>
+                  <a href="../mobile-apps/android-development/">Native Android Development</a>
+                  <a href="../mobile-apps/cross-platform/">Cross-Platform (React/Flutter)</a>
+                  <a href="../services/" class="view-all-services">View All App Services &rarr;</a>
+                </div>
+                <!-- Sub Panel: SEO -->
+                <div class="mega-sub-panel" id="mega-seo">
+                  <a href="../seo-marketing/local-seo/">On-Page & Local SEO</a>
+                  <a href="../seo-marketing/google-ads/">Google Ads Management</a>
+                  <a href="../seo-marketing/google-business-profile/">Google Business Profile</a>
+                  <a href="../services/" class="view-all-services">View All Marketing &rarr;</a>
+                </div>
+                <!-- Sub Panel: Vehicle Branding -->
+                <div class="mega-sub-panel" id="mega-vehicle">
+                  <a href="../vehicle-branding/full-wraps/">Full Vehicle Wraps</a>
+                  <a href="../vehicle-branding/fleet-wrapping/">Fleet Wrapping</a>
+                  <a href="../vehicle-branding/bakkie-branding/">Bakkie & Van Branding</a>
+                  <a href="../services/" class="view-all-services">View All Wraps &rarr;</a>
+                </div>
+                <!-- Sub Panel: DSTV -->
+                <div class="mega-sub-panel" id="mega-dstv">
+                  <a href="../dstv-installations/dstv/">DSTV Installations</a>
+                  <a href="../dstv-installations/cctv/">CCTV Camera Setups</a>
+                  <a href="../dstv-installations/tv-mounting/">TV Mounting & Audio</a>
+                  <a href="../services/" class="view-all-services">View All Installations &rarr;</a>
+                </div>
+                <!-- Sub Panel: Graphic Design -->
+                <div class="mega-sub-panel" id="mega-graphic">
+                  <a href="../graphic-design/corporate-identity/">Corporate Identity</a>
+                  <a href="../graphic-design/logo-design/">Logo & Print Design</a>
+                  <a href="../graphic-design/signage/">Outdoor & Store Signage</a>
+                  <a href="../services/" class="view-all-services">View All Graphic Services &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="../about/">About</a>
+          <a href="../portfolio/">Portfolio</a>
+          <a href="../areas/">Areas</a>
+          <a href="../blog/">Blog</a>
+          <a href="../contact/">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="../contact/" class="btn btn-primary">Get a Free Quote</a>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="../" class="mobile-nav-link">Home</a>
+    <button class="mobile-nav-link mobile-services-toggle open">
+      Our Services
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="mobile-services-list open">
+      <a href="./" style="color: var(--teal-600);">Website Design</a>
+      <a href="../mobile-apps/" style="">Mobile Apps</a>
+      <a href="../seo-marketing/" style="">SEO & Google Ads</a>
+      <a href="../vehicle-branding/" style="">Vehicle Branding</a>
+      <a href="../dstv-installations/" style="">DSTV Installations</a>
+      <a href="../graphic-design/" style="">Graphic Design</a>
+      <a href="../services/" style="font-weight: 700; color: var(--navy-800); margin-top: 5px;">All Services &rarr;</a>
+    </div>
+    <a href="../about/" class="mobile-nav-link">About</a>
+    <a href="../portfolio/" class="mobile-nav-link">Portfolio</a>
+    <a href="../areas/" class="mobile-nav-link">Areas</a>
+    <a href="../blog/" class="mobile-nav-link">Blog</a>
+    <a href="../contact/" class="mobile-nav-link">Contact</a>
+    <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <main id="main-content">
+    <!-- ==================== SERVICE HERO ==================== -->
+        <!-- HERO -->
+    <section class="hero-dark">
+      <div class="hero-dark-bg"></div>
+      <div class="container">
+        <div class="hero-dark-content">
+          <div class="hero-pill reveal">
+            <span class="hero-pill-dot"></span>
+            Web Design &amp; Development — Gauteng
+          </div>
+          <h1 class="hero-dark-title reveal reveal-delay-1">
+            Custom Websites That<br>
+            <span class="hero-accent">Convert Visitors</span><br>
+            Into Clients
+          </h1>
+          <p class="hero-dark-desc reveal reveal-delay-2">
+            From stunning corporate sites to powerful e-commerce stores. We build fast, secure, and SEO-optimized web applications for businesses across Johannesburg and Gauteng.
+          </p>
+          <div class="hero-dark-cta reveal reveal-delay-3">
+            <a href="../contact/" class="btn btn-accent btn-lg">Get Web Design Quote &rarr;</a>
+            <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%20need%20a%20website" class="btn btn-ghost btn-lg">Chat on WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-showcase">
+          <div class="showcase-card showcase-main">
+            <img src="../assets/showcase_web.png" alt="Web Design Showcase" fetchpriority="high">
+            <span class="showcase-label">Custom E-Commerce Platform</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTENT BLOCK ==================== -->
+    <section class="content-block">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal-left">
+            <h2 class="section-title">Why Your Business Needs a <span class="gradient-text">Professional Website</span></h2>
+            <p>In today's digital age, your website is your 24/7 storefront. A poorly designed site costs you credibility and customers, while a professional website works tirelessly to generate leads and sales.</p>
+            <ul class="pricing-features" style="margin-top: 2rem;">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <strong>Build Trust:</strong> 75% of consumers judge a company's credibility based on their website design.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <strong>Get Found Online:</strong> Our sites are built with SEO best practices to help you rank on Google.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <strong>Mobile Responsive:</strong> Flawless performance on smartphones, tablets, and desktops.</li>
+            </ul>
+          </div>
+          <div class="reveal-right">
+            <img src="../assets/showcase_web.png" alt="Web Design Johannesburg" style="aspect-ratio: 16/9; object-fit: cover; width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" width="800" height="450">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRICING PACKAGES ==================== -->
+    <section class="section" style="background: var(--navy-900);">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal">Affordable <span class="gradient-text">Web Design Packages</span></h2>
+          <p class="section-subtitle reveal reveal-delay-1">Transparent pricing for South African businesses. No hidden fees.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Basic -->
+          <div class="pricing-card reveal reveal-delay-1">
+            <h3>Starter Business</h3>
+            <div class="price">From R3,500<span> /once-off</span></div>
+            <p>Perfect for startups and small businesses needing a professional online presence.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 Pages</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Mobile Responsive Design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Contact Form Integration</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic On-Page SEO</li>
+            </ul>
+            <a href="../#contact" class="btn btn-outline" style="width: 100%;">Get Started</a>
+          </div>
+
+          <!-- Popular -->
+          <div class="pricing-card popular reveal reveal-delay-2">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Corporate Pro</h3>
+            <div class="price">From R6,500<span> /once-off</span></div>
+            <p>Comprehensive website for growing businesses looking to generate serious leads.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 10 Pages</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Premium Custom Design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Social Media Integration</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Advanced SEO Setup</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Google Analytics Integration</li>
+            </ul>
+            <a href="../#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
+          </div>
+
+          <!-- E-commerce -->
+          <div class="pricing-card reveal reveal-delay-3">
+            <h3>E-Commerce</h3>
+            <div class="price">From R9,500<span> /once-off</span></div>
+            <p>Full online store setup to help you sell products locally and internationally.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Pages / Products</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Payment Gateway Setup (PayFast, etc)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Inventory Management</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> WordPress / WooCommerce</li>
+            </ul>
+            <a href="../#contact" class="btn btn-outline" style="width: 100%;">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ==================== TECH STACK SHOWCASE ==================== -->
+    <section class="section tech-stack-section" style="background: var(--dark-950); padding: 3rem 0; border-top: 1px solid var(--dark-800); border-bottom: 1px solid var(--dark-800);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <p class="section-label" style="color: var(--accent-400); margin-bottom: 0.5rem;">Engineering Capability</p>
+          <h3 style="color: var(--white); font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800;">Technologies & Frameworks We Power</h3>
+        </div>
+        <div class="tech-marquee-wrapper" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 1000px; margin: 0 auto;">
+          
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/html5.svg" alt="HTML5 Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">HTML5</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/css.svg" alt="CSS3 Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">CSS3</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/javascript.svg" alt="JavaScript Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">JavaScript</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/typescript.svg" alt="TypeScript Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">TypeScript</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/nodedotjs.svg" alt="Node.js Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Node.js</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/python.svg" alt="Python Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Python</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/flutter.svg" alt="Flutter Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Flutter</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/dart.svg" alt="Dart Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Dart</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/wordpress.svg" alt="WordPress Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">WordPress</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/cplusplus.svg" alt="C++ Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">C++</span>
+    </div>
+  
+    <div class="tech-icon-item" style="display: flex; align-items: center; gap: 0.5rem; background: var(--dark-800); padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-dark);">
+      <img src="../assets/web design icons/ruby.svg" alt="Ruby Icon" width="24" height="24" style="width:24px; height:24px; object-fit:contain;">
+      <span style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Ruby</span>
+    </div>
+  
+        </div>
+      </div>
+    </section>
+  
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-banner-inner reveal-scale">
+          <h2>Ready for a <span class="gradient-text">Website Upgrade?</span></h2>
+          <p>Let's build a website that truly represents your brand. Get a free consultation and quote.</p>
+          <div class="cta-banner-buttons">
+            <a href="../#contact" class="btn btn-primary btn-lg">Get Your Free Quote</a>
+            <a href="tel:+27696219479" class="btn btn-outline btn-lg">Call 069 621 9479</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <p class="section-label">Our Process</p>
+      <h2 class="section-title">How We Build Websites That <span class="gradient-text">Rank & Convert</span></h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-number">01</div>
+        <h3>Discovery & Strategy</h3>
+        <p>We start by understanding your business, your customers, and your Johannesburg market. We analyse your competitors and identify the exact keywords your target clients are searching for.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">02</div>
+        <h3>Design & UX Planning</h3>
+        <p>Every Toran Digital website is designed mobile-first. With over 60% of South African web traffic coming from smartphones, your site must perform flawlessly on any screen size.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">03</div>
+        <h3>Development & SEO Integration</h3>
+        <p>We build on fast, clean code with on-page SEO baked in from the start — structured headings, schema markup, optimised images, and page speed tuning for South African network conditions.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">04</div>
+        <h3>Launch & Ongoing Support</h3>
+        <p>After launch we submit your sitemap to Google Search Console, set up Google Analytics, and provide 30 days of post-launch support so your site performs from day one.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem;">
+      <h2 class="section-title">Frequently Asked Questions About Web Design in Johannesburg</h2>
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question">How long does it take to build a website?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Most business websites are delivered in 2–4 weeks. E-commerce stores or custom web applications with complex integrations typically take 4–8 weeks. We provide a detailed timeline in your proposal before any work begins.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you build websites on WordPress?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. We build on WordPress, Shopify, and custom frameworks depending on your needs. WordPress suits most business sites and blogs; Shopify is our recommendation for product-heavy e-commerce stores.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Will my website rank on Google?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Every website we build includes on-page SEO foundations — proper title tags, meta descriptions, heading structure, schema markup, fast loading, and mobile optimisation. For ongoing ranking growth, we recommend pairing your new website with our SEO & Google Ads service.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer website hosting and maintenance?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. We offer monthly hosting and maintenance packages that include security updates, backups, uptime monitoring, and content updates. Ask us about our maintenance plans when requesting a quote.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../" class="logo">
+            <img src="../logo/toran_logo_perfect.png" alt="Toran Digital Logo" width="40" height="40">
+            <span class="logo-text">TORAN <span>DIGITAL</span></span>
+          </a>
+          <p>Gauteng's premier digital product studio. We help organizations expand their operational capability and marketing reach with bespoke technology, fleet wrapping, and security systems.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="./">Website Design</a></li>
+            <li><a href="../mobile-apps/">Mobile App Development</a></li>
+            <li><a href="../seo-marketing/">SEO & Google Ads</a></li>
+            <li><a href="../vehicle-branding/">Vehicle Wrapping</a></li>
+            <li><a href="../dstv-installations/">DSTV Installations</a></li>
+            <li><a href="../graphic-design/">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../portfolio/">Featured Portfolio</a></li>
+            <li><a href="../services/">All Services</a></li>
+            <li><a href="../areas/">Service Areas</a></li>
+            <li><a href="../contact/">Contact Us</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../blog/">Our Blog</a></li>
+            <li><a href="../blog/website-cost-johannesburg/">Web Design Costs</a></li>
+            <li><a href="../blog/seo-guide-johannesburg-businesses/">Local SEO Guide</a></li>
+            <li><a href="../blog/vehicle-branding-roi/">Vehicle Wrap ROI</a></li>
+            <li><a href="../blog/dstv-signal-problems/">DSTV Signal Fixes</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Popular Locations</h4>
+          <ul>
+            <li><a href="../web-design-sandton/">Web Design Sandton</a></li>
+            <li><a href="../web-design-fourways/">Web Design Fourways</a></li>
+            <li><a href="../web-design-centurion/">Web Design Centurion</a></li>
+            <li><a href="../vehicle-branding-kempton-park/">Vehicle Wrapping Isando</a></li>
+            <li><a href="../dstv-installation-edenvale/">DSTV Edenvale</a></li>
+            <li><a href="../areas/">All Coverage Areas &rarr;</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Details</h4>
+          <ul>
+            <li><a href="tel:+27696219479">069 621 9479</a></li>
+            <li><a href="mailto:sales@torandigital.co.za">sales@torandigital.co.za</a></li>
+            <li><span style="color: var(--text-on-dark-muted);">14 Jordaan Street, Putfontein, Benoni, 1501</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <p>&copy; 2026 Toran Digital. All Rights Reserved. | <a href="../privacy-policy/" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="../terms/" style="color: inherit; text-decoration: none;">Terms & Conditions</a></p>
+        <p>Built with precision in South Africa.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Widget -->
+  <div class="whatsapp-float">
+    <span class="tooltip">Chat with a Specialist</span>
+    <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script src="../index.js"></script>
+</body>
+</html>

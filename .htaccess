@@ -1,0 +1,41 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+Redirect 301 /web-design-sandton.html https://torandigital.co.za/web-design-sandton/
+Redirect 301 /web-design-benoni.html https://torandigital.co.za/web-design-benoni/
+Redirect 301 /web-design-pretoria.html https://torandigital.co.za/web-design-pretoria/
+Redirect 301 /web-design-randburg.html https://torandigital.co.za/web-design-randburg/
+Redirect 301 /web-design-midrand.html https://torandigital.co.za/web-design-midrand/
+Redirect 301 /vehicle-branding-benoni.html https://torandigital.co.za/vehicle-branding-benoni/
+Redirect 301 /vehicle-branding-germiston.html https://torandigital.co.za/vehicle-branding-germiston/
+Redirect 301 /dstv-installation-bedfordview.html https://torandigital.co.za/dstv-installation-bedfordview/
+Redirect 301 /dstv-installation-benoni.html https://torandigital.co.za/dstv-installation-benoni/
+Redirect 301 /dstv-installation-boksburg.html https://torandigital.co.za/dstv-installation-boksburg/
+
+# ---------------------------------------------------------------
+# Security: Block direct browser/crawler access to dev scripts,
+# strategy docs, and internal planning files at root level.
+# These should never be uploaded to public_html — but this rule
+# acts as a safety net if they are.
+# ---------------------------------------------------------------
+
+# Block root-level .js build/fix scripts (not index.js / hero-3d.js)
+<FilesMatch "^(add_canonical|add_hero_images|apply_3d_html|apply_all_fixes|create_blog|create_legal|create_locations|create_sitemap|create_sitemap2|execute_ui_fixes|expand_pages|fix_blog_authors|fix_critical|fix_critical_issues|fix_og_url|fix_schema_url|fix_services_page|generate_about|generate_internal_pages|generate_sub_services|migrate|phase2_fixes|remove_social|seo_fixes_1|seo_fixes_2|seo_phase1_fixes|seo_phase2_schema|setup_3d|update_css|update_global|update_global_css|update_hero_css|update_nav_links|update_services_css|copy_images)\.js$">
+  Require all denied
+</FilesMatch>
+
+# Block root-level .md strategy and SEO documents
+<FilesMatch "\.md$">
+  Require all denied
+</FilesMatch>
+
+# Block extension-less internal planning documents
+<FilesMatch "^(Advanced SEO Checklist for Toran Digital|Content Plan for Toran Digital|Local Area Page Template.*|On-Page SEO.*|SEO Keyword Research.*)$">
+  Require all denied
+</FilesMatch>
+
+# Block skills/zip/json lock files
+<FilesMatch "\.(zip|lock\.json)$">
+  Require all denied
+</FilesMatch>

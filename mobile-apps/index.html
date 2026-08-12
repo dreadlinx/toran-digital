@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Mobile App Development in Johannesburg | Toran Digital</title>
+  <meta name="description" content="Expert mobile app developers in Johannesburg. We build custom native Android and iOS apps, cross-platform apps, and business solutions in South Africa.">
+  <meta name="keywords" content="mobile app development Johannesburg, app developers South Africa, custom app development Gauteng, Android app development, iOS app developers SA">
+  <meta name="author" content="Toran Digital">
+  <link rel="canonical" href="https://torandigital.co.za/mobile-apps/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://torandigital.co.za/mobile-apps/">
+  <meta property="og:title" content="Mobile App Development | Toran Digital">
+  <meta property="og:description" content="Build your dream app. Custom Android and iOS development for SA businesses.">
+  <meta property="og:image" content="https://torandigital.co.za/logo/toran_logo_perfect.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+
+  <!-- Google Fonts preloaded for performance (no render-blocking @import) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="../index.css">
+
+  <style>
+    .service-hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--navy-900), var(--navy-800));
+      position: relative;
+    }
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(6, 182, 164, 0.1), transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(245, 183, 49, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+    .content-block { padding: 80px 0; }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .tech-card {
+      background: rgba(15, 32, 53, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .tech-card:hover { transform: translateY(-5px); border-color: var(--teal-400); }
+    .tech-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; color: var(--teal-400); }
+  </style>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".hero-dark-desc", ".section-subtitle", ".faq-answer"]
+  },
+    "@type": "Service",
+    "name": "Mobile App Development",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Toran Digital",
+      "telephone": "+27696219479",
+      "image": "https://torandigital.co.za/logo/toran_logo_perfect.png"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Johannesburg" },
+      { "@type": "AdministrativeArea", "name": "Sandton" },
+      { "@type": "AdministrativeArea", "name": "Pretoria" },
+      { "@type": "AdministrativeArea", "name": "Centurion" },
+      { "@type": "AdministrativeArea", "name": "Gauteng" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Mobile App Offerings",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Native iOS App Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Native Android App Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Cross-Platform App Development (Flutter/React Native)"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does it take to build an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depending on complexity, a custom mobile app typically takes between 6 to 16 weeks from initial discovery to final app store submission."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle Play Store and App Store submission?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we manage the full submission process for both the Google Play Store and Apple App Store, ensuring your app meets all guidelines for approval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the app work offline or handle poor connectivity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We design for South Africa's unique connectivity realities by implementing offline-first architecture and local data caching to ensure smooth operation during load-shedding or in low-signal areas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between native and cross-platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Native apps are built specifically for one platform (like iOS or Android) providing maximum performance. Cross-platform apps are built from a single codebase (using React Native or Flutter) to run on both systems, offering a highly cost-effective and faster solution without sacrificing quality."
+          }
+        }
+      ]
+    }
+    </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../logo/toran_logo_perfect.png">
+  <link rel="apple-touch-icon" href="../logo/toran_logo_perfect.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom Mobile App Development in Johannesburg | Toran Digital">
+  <meta name="twitter:description" content="Expert mobile app developers in Johannesburg. We build custom native Android and iOS apps, cross-platform apps, and business solutions in South Africa.">
+  <meta name="twitter:image" content="https://torandigital.co.za/logo/toran_logo_perfect.png">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../" class="logo" aria-label="Toran Digital Home">
+          <img src="../logo/toran_logo_perfect.png" alt="Toran Digital Logo" width="44" height="44">
+          <span class="logo-text">TORAN <span>DIGITAL</span></span>
+        </a>
+
+        <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+          <a href="../">Home</a>
+          
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+              Our Services
+              <svg class="chevron-down" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mega-dropdown">
+              <div class="mega-dropdown-left">
+                <a href="../web-design/" class="mega-item" data-target="mega-web">
+                  Website Design
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="./" class="mega-item active" data-target="mega-apps">
+                  Mobile Apps
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../seo-marketing/" class="mega-item" data-target="mega-seo">
+                  SEO & Google Ads
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../vehicle-branding/" class="mega-item" data-target="mega-vehicle">
+                  Vehicle Branding
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../dstv-installations/" class="mega-item" data-target="mega-dstv">
+                  DSTV & Installations
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="../graphic-design/" class="mega-item" data-target="mega-graphic">
+                  Graphic Design
+                  <svg class="chevron-right" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+              <div class="mega-dropdown-right">
+                <!-- Sub Panel: Web Design -->
+                <div class="mega-sub-panel" id="mega-web">
+                  <a href="../web-design/ecommerce/">Ecommerce Stores</a>
+                  <a href="../web-design/custom-web-apps/">Custom Web Apps</a>
+                  <a href="../web-design/wordpress/">WordPress Sites</a>
+                  <a href="../services/" class="view-all-services">View All Web Services &rarr;</a>
+                </div>
+                <!-- Sub Panel: Mobile Apps -->
+                <div class="mega-sub-panel active" id="mega-apps">
+                  <a href="./#ios">Native iOS Development</a>
+                  <a href="./#android">Native Android Development</a>
+                  <a href="./#cross-platform">Cross-Platform (React/Flutter)</a>
+                  <a href="../services/" class="view-all-services">View All App Services &rarr;</a>
+                </div>
+                <!-- Sub Panel: SEO -->
+                <div class="mega-sub-panel" id="mega-seo">
+                  <a href="../seo-marketing/local-seo/">On-Page & Local SEO</a>
+                  <a href="../seo-marketing/google-ads/">Google Ads Management</a>
+                  <a href="../seo-marketing/google-business-profile/">Google Business Profile</a>
+                  <a href="../services/" class="view-all-services">View All Marketing &rarr;</a>
+                </div>
+                <!-- Sub Panel: Vehicle Branding -->
+                <div class="mega-sub-panel" id="mega-vehicle">
+                  <a href="../vehicle-branding/full-wraps/">Full Vehicle Wraps</a>
+                  <a href="../vehicle-branding/fleet-wrapping/">Fleet Wrapping</a>
+                  <a href="../vehicle-branding/bakkie-branding/">Bakkie & Van Branding</a>
+                  <a href="../services/" class="view-all-services">View All Wraps &rarr;</a>
+                </div>
+                <!-- Sub Panel: DSTV -->
+                <div class="mega-sub-panel" id="mega-dstv">
+                  <a href="../dstv-installations/dstv/">DSTV Installations</a>
+                  <a href="../dstv-installations/cctv/">CCTV Camera Setups</a>
+                  <a href="../dstv-installations/tv-mounting/">TV Mounting & Audio</a>
+                  <a href="../services/" class="view-all-services">View All Installations &rarr;</a>
+                </div>
+                <!-- Sub Panel: Graphic Design -->
+                <div class="mega-sub-panel" id="mega-graphic">
+                  <a href="../graphic-design/corporate-identity/">Corporate Identity</a>
+                  <a href="../graphic-design/logo-design/">Logo & Print Design</a>
+                  <a href="../graphic-design/signage/">Outdoor & Store Signage</a>
+                  <a href="../services/" class="view-all-services">View All Graphic Services &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="../about/">About</a>
+          <a href="../portfolio/">Portfolio</a>
+          <a href="../areas/">Areas</a>
+          <a href="../blog/">Blog</a>
+          <a href="../contact/">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="../contact/" class="btn btn-primary">Get a Free Quote</a>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="../" class="mobile-nav-link">Home</a>
+    <button class="mobile-nav-link mobile-services-toggle open">
+      Our Services
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="mobile-services-list open">
+      <a href="../web-design/" style="">Website Design</a>
+      <a href="./" style="color: var(--teal-600);">Mobile Apps</a>
+      <a href="../seo-marketing/" style="">SEO & Google Ads</a>
+      <a href="../vehicle-branding/" style="">Vehicle Branding</a>
+      <a href="../dstv-installations/" style="">DSTV Installations</a>
+      <a href="../graphic-design/" style="">Graphic Design</a>
+      <a href="../services/" style="font-weight: 700; color: var(--navy-800); margin-top: 5px;">All Services &rarr;</a>
+    </div>
+    <a href="../about/" class="mobile-nav-link">About</a>
+    <a href="../portfolio/" class="mobile-nav-link">Portfolio</a>
+    <a href="../areas/" class="mobile-nav-link">Areas</a>
+    <a href="../blog/" class="mobile-nav-link">Blog</a>
+    <a href="../contact/" class="mobile-nav-link">Contact</a>
+    <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <main id="main-content">
+        <!-- HERO -->
+    <section class="hero-dark">
+      <div class="hero-dark-bg"></div>
+      <div class="container">
+        <div class="hero-dark-content">
+          <div class="hero-pill reveal">
+            <span class="hero-pill-dot"></span>
+            iOS &amp; Android App Development
+          </div>
+          <h1 class="hero-dark-title reveal reveal-delay-1">
+            Scalable Mobile Apps<br>
+            <span class="hero-accent">For iOS &amp; Android</span>
+          </h1>
+          <p class="hero-dark-desc reveal reveal-delay-2">
+            Take control of customer relationships. We develop robust mobile client portals, delivery tools, and mobile storefronts tailored for South Africa's connectivity dynamics.
+          </p>
+          <div class="hero-dark-cta reveal reveal-delay-3">
+            <a href="../contact/" class="btn btn-accent btn-lg">Get App Quote &rarr;</a>
+            <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%20have%20an%20app%20idea" class="btn btn-ghost btn-lg">WhatsApp Us</a>
+          </div>
+        </div>
+        <div class="hero-showcase">
+          <div class="showcase-card showcase-main">
+            <img src="../assets/showcase_mobile.png" alt="Mobile App Showcase" fetchpriority="high">
+            <span class="showcase-label">iOS &amp; Android Application</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-block">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal-left">
+            <h2 class="section-title">App Development <span class="gradient-text">Expertise</span></h2>
+            <p>Whether you need a consumer-facing e-commerce app or an internal enterprise tool to manage your logistics fleet in Johannesburg, we have the technical capability to build it.</p>
+            <p>We handle the entire app lifecycle: from UI/UX design and wireframing, through development and API integration, to final deployment on the Google Play Store and Apple App Store.</p>
+          </div>
+          <div class="reveal-right">
+             <img src="../assets/showcase_mobile.png" alt="Mobile App Development" style="aspect-ratio: 16/9; object-fit: cover; width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" width="800" height="450">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--navy-900);">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal">What We <span class="gradient-text">Build</span></h2>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-card reveal reveal-delay-1">
+            <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <h3>Native iOS Apps</h3>
+            <p>High-performance apps for iPhones and iPads, built with Swift and optimized for the Apple ecosystem.</p>
+          </div>
+          <div class="tech-card reveal reveal-delay-2">
+            <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2H5zM12 18v.01"/></svg>
+            <h3>Native Android Apps</h3>
+            <p>Scalable Android applications developed with Kotlin, ready for millions of devices globally.</p>
+          </div>
+          <div class="tech-card reveal reveal-delay-3">
+            <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5"/></svg>
+            <h3>Cross-Platform</h3>
+            <p>Cost-effective React Native or Flutter apps that run flawlessly on both iOS and Android from a single codebase.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="content-block" style="background: var(--surface-50); padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal">Why South African Businesses Are Investing in <span class="gradient-text">Custom Apps</span></h2>
+          <p class="section-subtitle reveal">Overcoming connectivity challenges and reaching your audience.</p>
+        </div>
+        <div class="reveal" style="max-width: 800px; margin: 0 auto; text-align: left; font-size: 1.1rem; line-height: 1.8; color: var(--navy-700);">
+          <p style="margin-bottom: 1.5rem;">The mobile usage in South Africa is growing exponentially, presenting a massive opportunity for businesses to connect directly with their customers. A custom mobile app puts your brand right in your customer's pocket.</p>
+          <p style="margin-bottom: 1.5rem;">Unlike traditional web apps, we build <strong>load-shedding-aware apps</strong> with offline-first capabilities. Whether it's caching data during power outages or optimizing for areas with poor connectivity, our apps ensure uninterrupted service.</p>
+          <p>We also understand the local landscape—from transitioning away from clunky USSD menus to delivering rich, native app experiences that your users will actually enjoy using.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal">Our Mobile App Development <span class="gradient-text">Process</span></h2>
+          <p class="section-subtitle reveal">A structured approach to ensure your app is delivered on time and on budget.</p>
+        </div>
+        <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div class="process-card reveal" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">1. Discovery</h3>
+            <p>We start by understanding your business goals, target audience, and the core problems your app needs to solve.</p>
+          </div>
+          <div class="process-card reveal reveal-delay-1" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">2. Wireframe</h3>
+            <p>Creating the blueprint. We map out user journeys and wireframe every screen to ensure a logical flow.</p>
+          </div>
+          <div class="process-card reveal reveal-delay-2" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">3. Design</h3>
+            <p>Crafting a beautiful, intuitive UI that aligns with your brand and provides an exceptional user experience.</p>
+          </div>
+          <div class="process-card reveal" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">4. Build</h3>
+            <p>Our developers write clean, scalable code, bringing the designs to life with robust functionality.</p>
+          </div>
+          <div class="process-card reveal reveal-delay-1" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">5. Test</h3>
+            <p>Rigorous QA testing across multiple devices to squash bugs and ensure optimal performance.</p>
+          </div>
+          <div class="process-card reveal reveal-delay-2" style="background: var(--surface-100); padding: 2rem; border-radius: 12px; text-align: left;">
+            <h3 style="color: var(--teal-600); margin-bottom: 1rem;">6. Launch</h3>
+            <p>We handle the complex submission process to both the Google Play Store and Apple App Store.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--navy-900); color: white;">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal" style="color: white;">Mobile App Development <span class="gradient-text">Packages</span></h2>
+          <p class="section-subtitle reveal" style="color: var(--surface-300);">Transparent pricing for every stage of your business growth.</p>
+        </div>
+        <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          
+          <div class="pricing-card reveal" style="background: var(--navy-800); border: 1px solid var(--navy-700); padding: 3rem 2rem; border-radius: 16px; text-align: center;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">MVP App</h3>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--teal-400); margin-bottom: 1.5rem;">from R15,000</div>
+            <p style="color: var(--surface-300); margin-bottom: 2rem; font-size: 0.95rem;">Perfect for startups testing a new concept.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; color: var(--surface-200);">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic Single-Platform (Android or iOS)</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Core Features Implementation</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Up to 3 Key Screens</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic UI/UX Design</li>
+            </ul>
+            <a href="../contact/" class="btn btn-outline" style="width: 100%; border-color: var(--teal-500); color: var(--teal-400);">Get Started</a>
+          </div>
+
+          <div class="pricing-card reveal reveal-delay-1" style="background: linear-gradient(145deg, var(--navy-800), var(--navy-700)); border: 2px solid var(--teal-500); padding: 3rem 2rem; border-radius: 16px; text-align: center; position: relative; transform: scale(1.05); z-index: 2;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--teal-500); color: var(--navy-900); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85rem;">MOST POPULAR</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Business App</h3>
+            <div style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem;">from R35,000</div>
+            <p style="color: var(--surface-300); margin-bottom: 2rem; font-size: 0.95rem;">For growing businesses needing robust solutions.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; color: var(--surface-100);">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Cross-Platform (iOS & Android)</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom API Integrations</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Web Admin Dashboard</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> User Authentication</li>
+            </ul>
+            <a href="../contact/" class="btn btn-primary" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card reveal reveal-delay-2" style="background: var(--navy-800); border: 1px solid var(--navy-700); padding: 3rem 2rem; border-radius: 16px; text-align: center;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Enterprise App</h3>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--teal-400); margin-bottom: 1.5rem;">Custom Quote</div>
+            <p style="color: var(--surface-300); margin-bottom: 2rem; font-size: 0.95rem;">Full-scale platforms for established organizations.</p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; color: var(--surface-200);">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> PayFast/Yoco Integration</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Real-Time Database</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Play Store & App Store Submission</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center;"><svg style="margin-right: 10px; color: var(--teal-400); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Complex Third-Party Systems</li>
+            </ul>
+            <a href="../contact/" class="btn btn-outline" style="width: 100%; border-color: var(--teal-500); color: var(--teal-400);">Request Quote</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header center">
+          <h2 class="section-title reveal">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        </div>
+        <div class="faq-container reveal" style="max-width: 800px; margin: 0 auto;">
+          
+          <div class="faq-item" style="border-bottom: 1px solid var(--surface-200); padding: 1.5rem 0;">
+            <h3 style="font-size: 1.2rem; color: var(--navy-800); margin-bottom: 0.5rem;">How long does it take to build an app?</h3>
+            <p style="color: var(--navy-600); line-height: 1.6;">Depending on complexity, a custom mobile app typically takes between 6 to 16 weeks from initial discovery to final app store submission.</p>
+          </div>
+          
+          <div class="faq-item" style="border-bottom: 1px solid var(--surface-200); padding: 1.5rem 0;">
+            <h3 style="font-size: 1.2rem; color: var(--navy-800); margin-bottom: 0.5rem;">Do you handle Play Store and App Store submission?</h3>
+            <p style="color: var(--navy-600); line-height: 1.6;">Yes, we manage the full submission process for both the Google Play Store and Apple App Store, ensuring your app meets all guidelines for approval.</p>
+          </div>
+
+          <div class="faq-item" style="border-bottom: 1px solid var(--surface-200); padding: 1.5rem 0;">
+            <h3 style="font-size: 1.2rem; color: var(--navy-800); margin-bottom: 0.5rem;">Can the app work offline or handle poor connectivity?</h3>
+            <p style="color: var(--navy-600); line-height: 1.6;">Absolutely. We design for South Africa's unique connectivity realities by implementing offline-first architecture and local data caching to ensure smooth operation during load-shedding or in low-signal areas.</p>
+          </div>
+
+          <div class="faq-item" style="padding: 1.5rem 0;">
+            <h3 style="font-size: 1.2rem; color: var(--navy-800); margin-bottom: 0.5rem;">What is the difference between native and cross-platform?</h3>
+            <p style="color: var(--navy-600); line-height: 1.6;">Native apps are built specifically for one platform (like iOS or Android) providing maximum performance. Cross-platform apps are built from a single codebase (using React Native or Flutter) to run on both systems, offering a highly cost-effective and faster solution without sacrificing quality.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-banner-inner reveal-scale">
+          <h2>Ready to Build <span class="gradient-text">Your App?</span></h2>
+          <p>Let's discuss your project and get a custom quote.</p>
+          <div class="cta-banner-buttons">
+            <a href="../#contact" class="btn btn-primary btn-lg">Get Your Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer logic duplicated below -->
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../" class="logo">
+            <img src="../logo/toran_logo_perfect.png" alt="Toran Digital Logo" width="40" height="40">
+            <span class="logo-text">TORAN <span>DIGITAL</span></span>
+          </a>
+          <p>Gauteng's premier digital product studio. We help organizations expand their operational capability and marketing reach with bespoke technology, fleet wrapping, and security systems.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../web-design/">Website Design</a></li>
+            <li><a href="./">Mobile App Development</a></li>
+            <li><a href="../seo-marketing/">SEO & Google Ads</a></li>
+            <li><a href="../vehicle-branding/">Vehicle Wrapping</a></li>
+            <li><a href="../dstv-installations/">DSTV Installations</a></li>
+            <li><a href="../graphic-design/">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../portfolio/">Featured Portfolio</a></li>
+            <li><a href="../services/">All Services</a></li>
+            <li><a href="../areas/">Service Areas</a></li>
+            <li><a href="../contact/">Contact Us</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../blog/">Our Blog</a></li>
+            <li><a href="../blog/website-cost-johannesburg/">Web Design Costs</a></li>
+            <li><a href="../blog/seo-guide-johannesburg-businesses/">Local SEO Guide</a></li>
+            <li><a href="../blog/vehicle-branding-roi/">Vehicle Wrap ROI</a></li>
+            <li><a href="../blog/dstv-signal-problems/">DSTV Signal Fixes</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Popular Locations</h4>
+          <ul>
+            <li><a href="../web-design-sandton/">Web Design Sandton</a></li>
+            <li><a href="../web-design-fourways/">Web Design Fourways</a></li>
+            <li><a href="../web-design-centurion/">Web Design Centurion</a></li>
+            <li><a href="../vehicle-branding-kempton-park/">Vehicle Wrapping Isando</a></li>
+            <li><a href="../dstv-installation-edenvale/">DSTV Edenvale</a></li>
+            <li><a href="../areas/">All Coverage Areas &rarr;</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Details</h4>
+          <ul>
+            <li><a href="tel:+27696219479">069 621 9479</a></li>
+            <li><a href="mailto:sales@torandigital.co.za">sales@torandigital.co.za</a></li>
+            <li><span style="color: var(--text-on-dark-muted);">14 Jordaan Street, Putfontein, Benoni, 1501</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <p>&copy; 2026 Toran Digital. All Rights Reserved. | <a href="../privacy-policy/" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="../terms/" style="color: inherit; text-decoration: none;">Terms & Conditions</a></p>
+        <p>Built with precision in South Africa.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Widget -->
+  <div class="whatsapp-float">
+    <span class="tooltip">Chat with a Specialist</span>
+    <a href="https://wa.me/27696219479?text=Hi%20Toran%20Digital%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script src="../index.js"></script>
+</body>
+</html>

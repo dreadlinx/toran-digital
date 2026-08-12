@@ -1,0 +1,114 @@
+# On-Page SEO and Site Structure Recommendations for Toran Digital
+
+To maximize your online visibility and attract potential clients across your diverse service offerings, a well-structured website with optimized on-page SEO is crucial. This document outlines recommendations for your `torandigital.co.za` website, focusing on a "silo" content structure to enhance relevance for each service.
+
+## 1. Overall Site Structure (Silo Approach)
+
+Adopting a silo structure will help search engines understand the thematic relevance of your content and improve your rankings for specific service-related keywords. Each primary service will have its own dedicated section (silo) on the website.
+
+```
+Home (torandigital.co.za)
+├── About Us
+├── Services
+│   ├── Web Design & Development (torandigital.co.za/web-design/)
+│   │   ├── Web Design Johannesburg (torandigital.co.za/web-design/johannesburg/)
+│   │   ├── E-commerce Web Design (torandigital.co.za/web-design/e-commerce/)
+│   │   └── WordPress Development (torandigital.co.za/web-design/wordpress/)
+│   ├── Vehicle Branding & Wrapping (torandigital.co.za/vehicle-branding/)
+│   │   ├── Car Wrapping Johannesburg (torandigital.co.za/vehicle-branding/car-wrapping/)
+│   │   ├── Fleet Branding Gauteng (torandigital.co.za/vehicle-branding/fleet-branding/)
+│   │   └── Vehicle Signage Germiston (torandigital.co.za/vehicle-branding/germiston/)
+│   ├── DSTV & Home Installations (torandigital.co.za/installations/)
+│   │   ├── DSTV Installers Johannesburg (torandigital.co.za/installations/dstv-johannesburg/)
+│   │   ├── TV Mounting Services (torandigital.co.za/installations/tv-mounting/)
+│   │   └── CCTV Installation Gauteng (torandigital.co.za/installations/cctv-gauteng/)
+│   └── Graphic Design & Branding (torandigital.co.za/graphic-design/)
+│       ├── Logo Design South Africa (torandigital.co.za/graphic-design/logo-design/)
+│       └── Custom Signage Solutions (torandigital.co.za/graphic-design/custom-signage/)
+├── Portfolio
+├── Blog
+├── Contact Us
+└── Privacy Policy / Terms & Conditions
+```
+
+**Key Benefits of this Structure:**
+*   **Improved Keyword Relevance:** Each silo focuses on a specific set of keywords, making it easier for search engines to understand the page's topic.
+*   **Enhanced User Experience:** Visitors can easily navigate to the specific service they are interested in.
+*   **Strong Internal Linking:** Facilitates passing 
+link equity and relevance between related pages.
+
+## 2. On-Page SEO Elements for Each Service Page
+
+For each service page (e.g., `/web-design/johannesburg/`, `/vehicle-branding/car-wrapping/`, `/installations/dstv-johannesburg/`), implement the following on-page SEO best practices:
+
+### a. Title Tags
+*   **Format:** Primary Keyword | Secondary Keyword | Brand Name
+*   **Example (Web Design):** `Web Design Johannesburg | Affordable Website Designers | Toran Digital`
+*   **Example (Vehicle Branding):** `Vehicle Branding Johannesburg | Car Wrapping & Fleet Graphics | Toran Digital`
+*   **Example (DSTV Installation):** `DSTV Installers Johannesburg | Accredited DSTV Repairs | Toran Digital`
+*   **Length:** Keep between 50-60 characters to avoid truncation in search results.
+
+### b. Meta Descriptions
+*   **Purpose:** A concise, compelling summary of the page content, encouraging clicks.
+*   **Include:** Primary keywords, a strong call to action (CTA), and unique selling propositions (USPs).
+*   **Length:** Approximately 150-160 characters.
+*   **Example (Web Design):** `Need a professional website in Johannesburg? Toran Digital offers affordable web design & development services. Get a free quote today!`
+*   **Example (Vehicle Branding):** `Transform your fleet with expert vehicle branding in Johannesburg. Toran Digital provides high-quality car wrapping & fleet graphics. Get a free quote!`
+*   **Example (DSTV Installation):** `Accredited DSTV installers in Johannesburg. Toran Digital offers reliable DSTV repairs, new installations & TV mounting. Book your service now!`
+
+### c. H1 Headings
+*   **Rule:** One H1 tag per page, containing the primary keyword.
+*   **Example (Web Design):** `Best Web Design Services in Johannesburg`
+*   **Example (Vehicle Branding):** `Professional Vehicle Branding & Car Wrapping in Johannesburg`
+*   **Example (DSTV Installation):** `Expert DSTV Installers & Repairs in Johannesburg`
+
+### d. Subheadings (H2, H3, etc.)
+*   Break up content, improve readability, and include secondary/long-tail keywords.
+*   **Example (Web Design H2s):** `Why Choose Toran Digital for Web Design?`, `Our Web Design Process`, `Affordable Web Design Packages`
+*   **Example (Vehicle Branding H2s):** `Benefits of Vehicle Branding for Your Business`, `Our Vehicle Wrapping Process`, `Types of Vehicle Graphics`
+*   **Example (DSTV Installation H2s):** `Common DSTV Signal Problems & Solutions`, `Why Choose Accredited DSTV Installers?`, `Our Home Installation Services`
+
+### e. Body Content
+*   **Keyword Integration:** Naturally weave primary and secondary keywords throughout the text. Avoid keyword stuffing.
+*   **Value Proposition:** Clearly articulate the benefits of your services.
+*   **Local Relevance:** Mention specific areas (Johannesburg, Gauteng, Bedfordview, Germiston, etc.) where relevant.
+*   **FAQs:** Include a section answering common questions to capture long-tail queries.
+*   **Internal Links:** Link to other relevant pages within your site (e.g., from a web design page to your portfolio).
+*   **External Links:** Link to authoritative external resources where appropriate.
+*   **Call to Action (CTA):** Clear and prominent CTAs on every page (e.g., "Get a Free Quote," "Contact Us Today," "View Our Portfolio").
+
+### f. Image Optimization
+*   **File Names:** Use descriptive, keyword-rich file names (e.g., `web-design-johannesburg-portfolio.jpg`, `vehicle-wrap-gauteng-fleet.png`).
+*   **Alt Text:** Provide descriptive alt text for all images, including keywords where natural.
+*   **Compression:** Compress images to ensure fast loading times.
+
+### g. URL Structure
+*   **Format:** Keep URLs short, descriptive, and keyword-rich.
+*   **Example:** `torandigital.co.za/web-design/johannesburg/`
+
+## 3. Local SEO Strategy
+
+Given your focus on Gauteng and Johannesburg, local SEO is paramount.
+
+### a. Google Business Profile (GBP)
+*   **Claim and Optimize:** Ensure your Google Business Profile for "Toran Digital" is claimed, verified, and fully optimized.
+*   **Accurate Information:** Maintain consistent Name, Address, Phone number (NAP) across all online listings.
+*   **Service Areas:** Clearly define your service areas (Gauteng, Johannesburg, specific suburbs).
+*   **Categories:** Select relevant primary and secondary categories (e.g., "Web Designer," "Sign Shop," "Satellite Dish Installation Service").
+*   **Photos:** Upload high-quality photos of your work, premises, and team.
+*   **Reviews:** Encourage clients to leave reviews and respond to all reviews promptly.
+*   **Posts:** Regularly create Google Business Profile posts about new services, offers, and projects.
+
+### b. Local Citations
+*   **Consistency:** Ensure your NAP information is consistent across all online directories (e.g., Yellow Pages, local business listings).
+*   **Quality:** Prioritize reputable local directories.
+
+### c. Location-Specific Content
+*   Create dedicated service pages for key locations (as outlined in the site structure).
+*   Mention local landmarks, events, or community involvement where appropriate.
+
+### d. Schema Markup
+*   Implement `LocalBusiness` schema markup on your website to provide search engines with structured information about your business, services, and location.
+*   Consider `Service` schema for individual service pages.
+
+By implementing these on-page SEO and site structure recommendations, Toran Digital will build a strong foundation for organic search visibility, attracting more qualified leads for all your services in the South African market.
