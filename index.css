@@ -3936,3 +3936,42 @@ body.menu-open {
 @media (max-width: 520px) {
   .asset-gallery-grid { grid-template-columns: 1fr; }
 }
+
+/* Image-led service descriptions */
+.sub-service-card .service-card-media,
+.service-tile .service-card-media,
+.tech-card .service-card-media,
+.design-card .service-card-media {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin: 0 0 1rem;
+  background: var(--slate-100);
+}
+.sub-service-card .service-card-media {
+  height: 110px;
+}
+.service-tile .service-card-media {
+  height: 155px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.tech-card .service-card-media,
+.design-card .service-card-media {
+  height: 145px;
+}
+.service-tile .tile-title,
+.tech-card h3,
+.design-card .card-title,
+.sub-service-card h4 {
+  margin-top: 0;
+}
+@media (max-width: 520px) {
+  .sub-service-card .service-card-media,
+  .service-tile .service-card-media,
+  .tech-card .service-card-media,
+  .design-card .service-card-media {
+    height: 175px;
+  }
+}
