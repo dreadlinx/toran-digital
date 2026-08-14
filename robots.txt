@@ -1,4 +1,24 @@
 User-agent: *
 Allow: /
 
+# AI search/retrieval agents - explicitly allowed for citation eligibility
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Heaviest / historically non-compliant AI crawler - blocked for server load
+User-agent: Bytespider
+Disallow: /
+
 Sitemap: https://torandigital.co.za/sitemap.xml
