@@ -3609,6 +3609,73 @@ section[id] {
   line-height: 1.7;
 }
 
+/* Override the browser's native <details> hide-when-closed behavior so the
+   same JS-driven .active + max-height animation used for div-based FAQs
+   also works for <details>-based FAQs on the sub-service pages, instead of
+   an instant, unanimated snap open/closed. */
+details.faq-item {
+  display: block;
+}
+details.faq-item > .faq-answer {
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+details.faq-item.active > .faq-answer {
+  max-height: 300px;
+}
+details.faq-item > summary.faq-question {
+  list-style: none;
+}
+details.faq-item > summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+/* Sub-service pages each carry their own embedded `details[open] .faq-chevron`
+   / `details[open] .faq-question` rule. Since the JS above now keeps every
+   <details> natively "open" (so content stays rendered for the max-height
+   animation) and drives visible state through the .active class instead,
+   those page-level [open] rules would otherwise apply to ALL items
+   permanently. Override them back to the closed look unless .active. */
+details.faq-item[open]:not(.active) > summary.faq-question {
+  background: white !important;
+  color: var(--text-heading) !important;
+}
+details.faq-item[open]:not(.active) .faq-chevron {
+  transform: none !important;
+}
+details.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* mobile-apps/index.html is the one hub page whose pricing cards rely on
+   inline styles only, with no hover state - every sibling hub page
+   (web-design, vehicle-branding, dstv-installations) already lifts its
+   pricing cards on hover via a page-embedded rule. This brings mobile-apps
+   in line without touching the other pages' own (equally specific, so
+   still page-controlled) hover rules. */
+.pricing-card {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Subtle zoom-on-hover for the real work photos added to the "Recent Work"
+   sections on location pages - a small, expected touch for portfolio-style
+   images that were otherwise static. */
+.recent-work-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 320px;
+}
+.recent-work-photo img {
+  transition: transform 0.5s ease;
+}
+.recent-work-photo:hover img {
+  transform: scale(1.06);
+}
+
 /* ========================
    AREAS MAP & PORTFOLIO OVERLAYS
    ======================== */

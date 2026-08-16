@@ -207,22 +207,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // FAQ disclosures
+  // FAQ disclosures (supports both <div class="faq-item"> and <details class="faq-item">)
   const faqItems = [...document.querySelectorAll('.faq-item')];
   faqItems.forEach((item, index) => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
     if (!question || !answer) return;
+    const isDetails = item.tagName === 'DETAILS';
     const answerId = answer.id || `faq-answer-${index + 1}`;
     answer.id = answerId;
     question.setAttribute('aria-controls', answerId);
+    if (isDetails) {
+      // Take over the native <details> toggle so it gets the same smooth
+      // slide animation as the button-based FAQ, instead of an instant snap.
+      item.open = true; // keep content in the DOM/rendered so max-height can animate
+    }
     const setFaqState = (open) => {
       item.classList.toggle('active', open);
       question.setAttribute('aria-expanded', String(open));
-      answer.hidden = !open;
+      if (isDetails) {
+        item.open = true; // always "open" natively; visibility is driven by .active + CSS max-height
+      } else {
+        answer.hidden = !open;
+      }
     };
     setFaqState(item.classList.contains('active'));
-    question.addEventListener('click', () => {
+    question.addEventListener('click', (event) => {
+      if (isDetails) event.preventDefault();
       const willOpen = !item.classList.contains('active');
       faqItems.forEach((otherItem) => {
         const otherQuestion = otherItem.querySelector('.faq-question');
@@ -230,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (otherQuestion && otherAnswer) {
           otherItem.classList.remove('active');
           otherQuestion.setAttribute('aria-expanded', 'false');
-          otherAnswer.hidden = true;
+          if (otherItem.tagName !== 'DETAILS') otherAnswer.hidden = true;
         }
       });
       setFaqState(willOpen);
